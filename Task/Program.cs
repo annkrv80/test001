@@ -6,6 +6,10 @@ int size = Convert.ToInt32(Console.ReadLine());
 string[] array = new string[size];
 FillingArray(array);
 PrintArray(array);
+Console.WriteLine();
+string[] changeArray = ConvertArray(array);
+PrintArray(changeArray);
+
 
 
 
@@ -33,12 +37,28 @@ void FillingArray(string[] array)
 void PrintArray(string[] array)
 
 {
-    Console.WriteLine("Вывод масcива");
     
     for (int i = 0; i < array.Length; i++)
     {
         Console.Write($"{array[i]} ");
     }
 }
+
+
+string[] ConvertArray (string[] array)
+{
+    int count = 0; 
+    string[] resultArray = new string[size];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length < 4)
+        {
+            resultArray[count] = array[i];
+            count++;
+        }
+    }
+    return resultArray;
+}
+
 
 
