@@ -5,6 +5,7 @@ Console.Write("Введите число эллементов массива ");
 int size = Convert.ToInt32(Console.ReadLine());
 string[] array = new string[size];
 FillingArray(array);
+PrintArray(array);
 
 
 
@@ -27,3 +28,17 @@ void FillingArray(string[] array)
         }
     }
 }
+
+
+void PrintArray(string[] array)
+
+{
+    Console.WriteLine("Вывод масcива");
+    
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+}
+
+
