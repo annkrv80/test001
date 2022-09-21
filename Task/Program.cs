@@ -7,7 +7,8 @@ string[] array = new string[size];
 FillingArray(array);
 PrintArray(array);
 Console.WriteLine();
-string[] changeArray = ConvertArray(array);
+int newSize=CountElement(array);
+string[] changeArray = ConvertArray(array,newSize);
 PrintArray(changeArray);
 
 
@@ -44,11 +45,25 @@ void PrintArray(string[] array)
     }
 }
 
-
-string[] ConvertArray (string[] array)
+int CountElement (string[] array)
 {
-    int count = 0; 
-    string[] resultArray = new string[size];
+    int size = 0;
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length < 4)
+        {
+           size++;
+        }
+    }
+    
+    return size;
+}
+
+string[] ConvertArray (string[] array, int newSize)
+{
+    int count = 0;
+    string[] resultArray = new string[newSize];
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length < 4)
@@ -57,6 +72,7 @@ string[] ConvertArray (string[] array)
             count++;
         }
     }
+    
     return resultArray;
 }
 
